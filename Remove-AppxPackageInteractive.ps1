@@ -67,7 +67,7 @@ $xaml.SelectNodes("//*[@Name]") | %{Set-Variable -Name "$($_.Name)" -Value $Form
 
 $packages = Get-AppxPackage | Sort-Object -Property Name,Architecture
 $packages | Foreach-Object {
-    $lstPackages.Items.Add([pscustomobject]@{'Label'=$_.Name + " (" + $_.Architecture + ")";'Name'=$_.Name;'IsProvisioned'=$false})
+    $lstPackages.Items.Add([pscustomobject]@{'Label'=$_.Name + " (" + $_.Architecture + ")";'Name'=$_.PackageFullName;'IsProvisioned'=$false})
 } | out-null
 
 try {
